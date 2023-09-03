@@ -1,8 +1,6 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import Wrapper from './Wrapper';
-import SetsList from './SetsList';
-import Card from './Card';
+import { FlatList, StyleSheet, View } from 'react-native';
+import ExerciseCard from './ExerciseCard';
 
 const exercises = [
     {
@@ -55,23 +53,21 @@ const exercises = [
     },
 ];
 
-const ExerciseView = () => {
+const ExercisesView = () => {
     return (
         <FlatList
             data={exercises}
             style={styles.container}
             renderItem={({ item }) => (
                 <View style={styles.container}>
-                    <Card title={item.name}>
-                        <SetsList list={item.sets} />
-                    </Card>
+                    <ExerciseCard exercise={item} />
                 </View>
             )}
         ></FlatList>
     );
 };
 
-export default ExerciseView;
+export default ExercisesView;
 
 const styles = StyleSheet.create({
     container: {
