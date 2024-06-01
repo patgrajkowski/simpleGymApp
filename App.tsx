@@ -5,19 +5,18 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, SafeAreaView, StatusBar as StatusBarRN, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import CalendarView from './components/CalendarView';
-import { IExercise } from './components/ExerciseCard';
-import ExercisesView from './components/ExercisesView';
 import SettingsView from './components/SettingsView';
-import colors from './config/colors';
+import colors from './styles/colors';
 import ExercisesStack from './components/ExercisesStack';
+import { IExercise } from './interfaces/exercise.interface';
 
 export type NavigationParamList = {
     Settings: undefined;
 };
 
-export type StackNavigationParamList = {
+export type StackNavigatorParamsList = {
     Exercises: undefined;
-    ExerciseDetails: { exercise?: IExercise };
+    ExerciseDetails: { exercise: IExercise };
 };
 
 export default function App() {

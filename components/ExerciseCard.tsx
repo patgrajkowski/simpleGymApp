@@ -1,26 +1,17 @@
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import { FlatList, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
+import { StackNavigatorParamsList } from '../App';
+import colors from '../styles/colors';
+import { IExercise } from '../interfaces/exercise.interface';
 import SetsListItem from './SetsListItem';
-import colors from '../config/colors';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { NavigationParamList } from '../App';
+import borderStyle from '../styles/border';
 
-interface ISetsList {
+interface IExerciseCardProps {
     exercise: IExercise;
-}
-
-export interface IExercise {
-    name: string;
-    sets: ISetsListItem[];
-}
-
-export interface ISetsListItem {
-    trophy?: boolean;
-    weight: number;
-    reps: number;
 }
 
 const Delete = () => {
@@ -32,8 +23,8 @@ const Delete = () => {
     );
 };
 
-const ExerciseCard = ({ exercise }: ISetsList) => {
-    const navigation = useNavigation<NativeStackNavigationProp<NavigationParamList>>();
+const ExerciseCard = ({ exercise }: IExerciseCardProps) => {
+    const navigation = useNavigation<NativeStackNavigationProp<StackNavigatorParamsList>>();
 
     return (
         <View style={styles.container}>
@@ -50,7 +41,7 @@ const ExerciseCard = ({ exercise }: ISetsList) => {
                             renderItem={({ item }) => (
                                 <SetsListItem reps={item.reps} weight={item.weight} trophy={item.trophy} />
                             )}
-                        ></FlatList>
+                        />
                     </View>
                 </TouchableWithoutFeedback>
             </Swipeable>
@@ -63,13 +54,8 @@ export default ExerciseCard;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
-        borderRadius: 12,
-        shadowColor: 'black',
-        shadowOpacity: 1,
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 10,
-        elevation: 4,
         overflow: 'hidden',
+        ...borderStyle,
     },
     title: {
         fontSize: 24,

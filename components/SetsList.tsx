@@ -1,18 +1,13 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import SetsListItem from './SetsListItem';
+import { ISetsListItem } from '../interfaces/sets.interface';
 
-interface ISetsList {
+interface IProps {
     list: ISetsListItem[];
 }
 
-export interface ISetsListItem {
-    trophy?: boolean;
-    weight: number;
-    reps: number;
-}
-
-const SetsList = ({ list }: ISetsList) => {
+const SetsList = ({ list }: IProps) => {
     return (
         <FlatList
             data={list}

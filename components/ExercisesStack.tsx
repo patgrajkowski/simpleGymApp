@@ -1,11 +1,11 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { StackNavigationParamList } from '../App';
 import ExerciseDetailsView from './ExerciseDetailsView';
 import ExercisesView from './ExercisesView';
+import { StackNavigatorParamsList } from '../App';
 
-const Stack = createStackNavigator<StackNavigationParamList>();
+const Stack = createStackNavigator<StackNavigatorParamsList>();
 
 const ExercisesStack = () => {
     return (

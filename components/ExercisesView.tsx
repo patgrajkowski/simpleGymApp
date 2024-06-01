@@ -1,8 +1,9 @@
 import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import ExerciseCard from './ExerciseCard';
+import { IExercise } from '../interfaces/exercise.interface';
 
-const exercises = [
+const exercises: IExercise[] = [
     {
         name: 'Bench press',
         sets: [
